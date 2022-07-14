@@ -22,7 +22,7 @@ jobs:
       - name: Build
         run: |
           css-minify -d ./style -o ./style/min
-          cd min
+          cd style/min
           rename -v 's/.min//' *.min.css
         shell: bash
 

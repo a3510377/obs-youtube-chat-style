@@ -30,10 +30,10 @@ yt-live-chat-item-list-renderer #contents {
   bottom: 15px !important;
 }
 yt-live-chat-text-message-renderer {
-  display: flex;
-  align-items: center;
+  display: flex !important;
+  align-items: center !important;
   margin-right: 10px;
-  font-size: 16pt;
+  font-size: 16pt !important;
 }
 yt-live-chat-text-message-renderer img {
   width: 40px;

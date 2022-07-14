@@ -29,12 +29,11 @@ jobs:
 
       - name: deploy
         run: |
-          cd style
           if [ "none" !=  "$cname" ]; then echo "$cname" > CNAME; fi
           git config --global user.name "$user_name"
           git config --global user.email "$user_email"
           git init
-          git add -A
+          for d in scss css; do [ -f "$d" ] || git add "$d"; done
           git commit -m "${{ github.event.head_commit.message }}"
           git push -f https://_:"$token"@github.com/${{ github.event.repository.full_name }}.git master:gh-pages
         shell: bash

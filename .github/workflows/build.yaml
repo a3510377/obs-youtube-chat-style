@@ -17,12 +17,13 @@ jobs:
           node-version: '16.x'
 
       - name: Install
-        run: yarn global add css-minify
+        run: yarn global add node-sass css-minify
 
       - name: Build
         run: |
-          css-minify -d ./style -o ./style/min
-          cd style/min
+          node-sass ./scss -o ./css
+          cd css
+          css-minify -d . -o .
           for f in *.min.css; do mv -- "$f" "${f%.min.css}.css"; done
         shell: bash
 

@@ -25,6 +25,9 @@ yt-live-chat-item-list-renderer {
   border-radius: 12px;
   background-color: rgba(0, 0, 0, 0.65);
 }
+yt-live-chat-app {
+  min-height: auto !important;
+}
 yt-live-chat-item-list-renderer #contents {
   top: 15px !important;
   bottom: 15px !important;

@@ -20,18 +20,24 @@ yt-live-chat-text-message-renderer[is-deleted] {
 #item-scroller {
   overflow-y: hidden !important;
 }
-#item-offset {
+yt-live-chat-item-list-renderer {
   height: 100% !important;
   border-radius: 12px;
   background-color: rgba(0, 0, 0, 0.65);
 }
+yt-live-chat-item-list-renderer #contents {
+  top: 15px !important;
+  bottom: 15px !important;
+}
 yt-live-chat-text-message-renderer {
+  display: flex;
+  align-items: center;
   margin-right: 10px;
   font-size: 16pt;
 }
 yt-live-chat-text-message-renderer img {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
 }
 yt-live-chat-author-chip {
   width: 100%;

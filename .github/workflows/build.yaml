@@ -20,7 +20,11 @@ jobs:
         run: yarn global add css-minify
 
       - name: Build
-        run: css-minify -d ./style -o ./style/min
+        run: |
+          css-minify -d ./style -o ./style/min
+          cd min
+          rename -v 's/.min//' *.min.css
+        shell: bash
 
       - name: deploy
         run: |

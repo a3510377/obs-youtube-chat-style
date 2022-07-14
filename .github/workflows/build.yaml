@@ -23,7 +23,6 @@ jobs:
         run: |
           css-minify -d ./style -o ./style/min
           cd style/min
-          rename -v 's/.min//' *.min.css
           for f in *.prog; do mv -- "$f" "${f%.min.css}.css"; done
         shell: bash
 

@@ -25,18 +25,25 @@ yt-live-chat-viewer-engagement-message-renderer {
     align-items: var(--mkc-#{$author-var-name}-align-items, flex-start);
 
     yt-img-shadow#author-photo {
-      width: var(--mkc-#{$author-var-name}-avatar-width);
-      height: var(--mkc-#{$author-var-name}-avatar-height);
-
-      img {
-        width: 100%;
-        height: 100%;
-      }
+      width: var(--mkc-avatar-#{$author-var-name}-width);
+      height: var(--mkc-avatar-#{$author-var-name}-height);
+      margin: var(--mkc-avatar-#{$author-var-name}-margin);
+      padding: var(--mkc-avatar-#{$author-var-name}-padding);
     }
     yt-live-chat-author-chip {
+      display: flex;
+
+      #chip-badges,
+      #chat-badges {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+      }
       @include base-template($author-var-name);
     }
     #message {
+      line-height: initial;
+      color: var(--mkc-message-#{$author-var-name}-color);
       @include base-template(message-#{$author-var-name});
     }
   }
@@ -52,6 +59,10 @@ yt-live-chat-text-message-renderer {
 
   &[is-deleted] {
     display: var(--mkc-message-deleted-display, flex);
+  }
+  yt-img-shadow#author-photo img {
+    width: 100%;
+    height: 100%;
   }
 }
 yt-live-chat-author-badge-renderer[type="moderator"] {

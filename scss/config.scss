@@ -1,38 +1,57 @@
+$default-avatar-width: 40px;
+$default-avatar-height: 40px;
+$default-avatar-margin: null;
+$default-avatar-padding: 6px;
+
 $base_theme: (
   "owner": (
     "author": (
       "display": flex,
       "align-items": "center",
-      "margin": 10px,
-      "padding": 10px,
+      "margin": null,
+      "padding": null,
       "font-size": 25px,
       "font-weight": 400,
       "width": 40px,
       "height": 40px,
     ),
     "message": (
+      "color": null,
       "margin": null,
       "padding": null,
       "font-size": 25px,
       "font-weight": null,
+    ),
+    "avatar": (
+      "width": $default-avatar-width,
+      "height": $default-avatar-height,
+      "margin": $default-avatar-margin,
+      "padding": $default-avatar-padding,
     ),
   ),
   "moderator": (
     "author": (
       "display": flex,
       "align-items": "center",
-      "margin": 10px,
-      "padding": 10px,
+      "margin": null,
+      "padding": null,
       "font-size": 25px,
       "font-weight": 400,
       "width": 40px,
       "height": 40px,
     ),
     "message": (
+      "color": null,
       "margin": null,
       "padding": null,
       "font-size": 25px,
       "font-weight": null,
+    ),
+    "avatar": (
+      "width": $default-avatar-width,
+      "height": $default-avatar-height,
+      "margin": $default-avatar-margin,
+      "padding": $default-avatar-padding,
     ),
   ),
   "member": (
@@ -40,17 +59,24 @@ $base_theme: (
       "display": flex,
       "align-items": "center",
       "margin": null,
-      "padding": 10px,
+      "padding": null,
       "font-size": 25px,
       "font-weight": 400,
       "width": 40px,
       "height": 40px,
     ),
     "message": (
+      "color": null,
       "margin": null,
       "padding": null,
       "font-size": 25px,
       "font-weight": null,
+    ),
+    "avatar": (
+      "width": $default-avatar-width,
+      "height": $default-avatar-height,
+      "margin": $default-avatar-margin,
+      "padding": $default-avatar-padding,
     ),
   ),
   "user": (
@@ -58,30 +84,29 @@ $base_theme: (
       "display": flex,
       "align-items": "center",
       "margin": null,
-      "padding": 10px,
+      "padding": 2px,
       "font-size": 25px,
       "font-weight": 400,
       "width": 40px,
       "height": 40px,
     ),
     "message": (
-      "margin": null,
+      "color": null,
+      "margin": 10px 0 0,
       "padding": null,
       "font-size": 25px,
       "font-weight": null,
     ),
     "avatar": (
-      "width": 15px,
-      "height": 15px,
-      "margin": 15px,
-      "padding": 15px,
-      "font-size": 20px,
-      "font-weight": 15px,
+      "width": $default-avatar-width,
+      "height": $default-avatar-height,
+      "margin": $default-avatar-margin,
+      "padding": $default-avatar-padding,
     ),
   ),
   "global": (
     --mks-page-border-radius: 15px,
-    --mks-page-background-color: #00000075,
+    --mks-page-background-color: #000000a6,
 
     // yt
     --scrollbar-width: 0,

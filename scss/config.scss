@@ -94,7 +94,11 @@ $base_theme: (
   @each $author-type, $configs in $base_theme {
     @if $author-type == "global" {
       @each $key, $value in $configs {
-        #{$key}: #{$value} !important;
+        @if str-index($key, "--mks-") {
+          #{$key}: #{$value};
+        } @else {
+          #{$key}: #{$value} !important;
+        }
       }
     } @else {
       @each $type in "author", "message", "avatar" {

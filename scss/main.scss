@@ -41,10 +41,14 @@ yt-live-chat-viewer-engagement-message-renderer {
       }
       @include base-template($author-var-name);
     }
-    #message {
-      line-height: initial;
-      color: var(--mkc-message-#{$author-var-name}-color);
-      @include base-template(message-#{$author-var-name});
+    #content {
+      margin: 0 0 0 10px;
+
+      #message {
+        line-height: initial;
+        color: var(--mkc-message-#{$author-var-name}-color);
+        @include base-template(message-#{$author-var-name});
+      }
     }
   }
 }

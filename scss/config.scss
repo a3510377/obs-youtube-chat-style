@@ -1,0 +1,147 @@
+$default-avatar-width: 40px !default;
+$default-avatar-height: 40px !default;
+$default-avatar-margin: null !default;
+$default-avatar-padding: 6px !default;
+$default-author-display: null !default; // yt default flex
+$default-author-align-items: null !default;
+$default-author-margin: null !default;
+$default-author-padding: null !default;
+$default-author-font-size: 25px !default;
+
+$base_theme: (
+  "owner": (
+    "author": (
+      "display": $default-author-display,
+      "align-items": $default-author-align-items,
+      "margin": $default-author-margin,
+      "padding": $default-author-padding,
+      "font-size": $default-author-font-size,
+      "font-weight": 400,
+      "width": 40px,
+      "height": 40px,
+    ),
+    "message": (
+      "color": null,
+      "margin": null,
+      "padding": null,
+      "font-size": 25px,
+      "font-weight": null,
+    ),
+    "avatar": (
+      "width": $default-avatar-width,
+      "height": $default-avatar-height,
+      "margin": $default-avatar-margin,
+      "padding": $default-avatar-padding,
+    ),
+  ),
+  "moderator": (
+    "author": (
+      "display": $default-author-display,
+      "align-items": $default-author-align-items,
+      "margin": $default-author-margin,
+      "padding": $default-author-padding,
+      "font-size": $default-author-font-size,
+      "font-weight": 400,
+      "width": 40px,
+      "height": 40px,
+    ),
+    "message": (
+      "color": null,
+      "margin": null,
+      "padding": null,
+      "font-size": 25px,
+      "font-weight": null,
+    ),
+    "avatar": (
+      "width": $default-avatar-width,
+      "height": $default-avatar-height,
+      "margin": $default-avatar-margin,
+      "padding": $default-avatar-padding,
+    ),
+  ),
+  "member": (
+    "author": (
+      "display": $default-author-display,
+      "align-items": $default-author-align-items,
+      "margin": $default-author-margin,
+      "padding": $default-author-padding,
+      "font-size": $default-author-font-size,
+      "font-weight": 400,
+      "width": 40px,
+      "height": 40px,
+    ),
+    "message": (
+      "color": null,
+      "margin": null,
+      "padding": null,
+      "font-size": 25px,
+      "font-weight": null,
+    ),
+    "avatar": (
+      "width": $default-avatar-width,
+      "height": $default-avatar-height,
+      "margin": $default-avatar-margin,
+      "padding": $default-avatar-padding,
+    ),
+  ),
+  "user": (
+    "author": (
+      "display": $default-author-display,
+      "align-items": $default-author-align-items,
+      "margin": $default-author-margin,
+      "padding": $default-author-padding,
+      "font-size": $default-author-font-size,
+      "font-weight": 400,
+      "width": 40px,
+      "height": 40px,
+    ),
+    "message": (
+      "color": null,
+      "margin": 10px 0 0,
+      "padding": null,
+      "font-size": 25px,
+      "font-weight": null,
+    ),
+    "avatar": (
+      "width": $default-avatar-width,
+      "height": $default-avatar-height,
+      "margin": $default-avatar-margin,
+      "padding": $default-avatar-padding,
+    ),
+  ),
+  "global": (
+    --mks-page-border-radius: 15px,
+    --mks-page-background-color: #000000a6,
+
+    // yt
+    --scrollbar-width: 0,
+    --yt-img-border-radius: 50%,
+    --yt-live-chat-background-color: var(--mks-page-background-color),
+  ),
+) !default;
+
+:root {
+  @each $author-type, $configs in $base_theme {
+    @if $author-type == "global" {
+      @each $key, $value in $configs {
+        @if str-index($key, "--mks-") {
+          #{$key}: #{$value};
+        } @else {
+          #{$key}: #{$value} !important;
+        }
+      }
+    } @else {
+      @each $type in "author", "message", "avatar" {
+        $_: $author-type;
+        @if $type != "author" {
+          $_: #{$type}-#{$author-type};
+        }
+        @each $key, $value in map-get($configs, $type) {
+          @if $value != null {
+            --mkc-#{$_}-#{$key}: #{$value};
+          }
+        }
+      }
+    }
+  }
+}

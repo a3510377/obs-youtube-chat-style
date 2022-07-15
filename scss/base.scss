@@ -1,0 +1,65 @@
+/*
+  yt-icon-button: button icon
+  yt-live-chat-poll-renderer: 投票框
+  yt-live-chat-banner-manager: 置頂訊錫
+  yt-live-chat-header-renderer: 聊天室選則欄
+  yt-live-chat-message-input-renderer: 訊息發送
+  yt-live-chat-viewer-engagement-message-renderer: yt 歡迎訊息
+*/
+
+yt-icon-button,
+yt-live-chat-poll-renderer,
+yt-live-chat-banner-manager,
+yt-live-chat-header-renderer,
+yt-live-chat-message-input-renderer,
+yt-live-chat-viewer-engagement-message-renderer,
+yt-live-chat-text-message-renderer[is-deleted] {
+  display: none !important;
+}
+
+#item-scroller {
+  overflow-y: hidden !important;
+}
+
+yt-live-chat-item-list-renderer {
+  height: 100% !important;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.65);
+
+  #contents {
+    top: 15px !important;
+    bottom: 15px !important;
+  }
+}
+
+yt-live-chat-app {
+  min-height: auto !important;
+}
+
+yt-live-chat-text-message-renderer {
+  margin-right: 10px;
+  display: flex !important;
+  font-size: 16pt !important;
+  align-items: center !important;
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+yt-live-chat-author-chip {
+  width: 100%;
+
+  #author-name {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+:root {
+  --scrollbar-width: 0px !important;
+  --yt-live-chat-background-color: transparent !important;
+}

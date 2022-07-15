@@ -41,7 +41,9 @@ yt-live-chat-viewer-engagement-message-renderer {
     }
   }
 }
-
+yt-live-chat-renderer {
+  border-radius: var(--mks-page-border-radius, 15px);
+}
 yt-live-chat-text-message-renderer {
   @include message-renderer-template("owner"); // 擁有者
   @include message-renderer-template("moderator"); // 管理
@@ -52,29 +54,9 @@ yt-live-chat-text-message-renderer {
     display: var(--mkc-message-deleted-display, flex);
   }
 }
-
 yt-live-chat-author-badge-renderer[type="moderator"] {
   color: var(--mkc-moderator-icon-color) !important;
 }
-
-:root {
-  @each $author-type, $configs in $base_theme {
-    @if $author-type == "global" {
-      @each $key, $value in $configs {
-        #{$key}: #{$value} !important;
-      }
-    } @else {
-      @each $type in "author", "message", "avatar" {
-        $_: $author-type;
-        @if $type != "author" {
-          $_: #{$type}-#{$author-type};
-        }
-        @each $key, $value in map-get($configs, $type) {
-          @if $value != null {
-            --mkc-#{$_}-#{$key}: #{$value};
-          }
-        }
-      }
-    }
-  }
+#item-scroller {
+  overflow-y: hidden !important;
 }

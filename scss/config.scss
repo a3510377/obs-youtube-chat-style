@@ -39,7 +39,7 @@ $base_theme: (
     "author": (
       "display": flex,
       "align-items": "center",
-      "margin": 10px,
+      "margin": null,
       "padding": 10px,
       "font-size": 25px,
       "font-weight": 400,
@@ -57,7 +57,7 @@ $base_theme: (
     "author": (
       "display": flex,
       "align-items": "center",
-      "margin": 10px,
+      "margin": null,
       "padding": 10px,
       "font-size": 25px,
       "font-weight": 400,
@@ -80,7 +80,34 @@ $base_theme: (
     ),
   ),
   "global": (
+    --mks-page-border-radius: 15px,
+    --mks-page-background-color: #00000075,
+
+    // yt
+    --scrollbar-width: 0,
     --yt-img-border-radius: 50%,
-    --yt-live-chat-background-color: #00000075,
+    --yt-live-chat-background-color: var(--mks-page-background-color),
   ),
 ) !default;
+
+:root {
+  @each $author-type, $configs in $base_theme {
+    @if $author-type == "global" {
+      @each $key, $value in $configs {
+        #{$key}: #{$value} !important;
+      }
+    } @else {
+      @each $type in "author", "message", "avatar" {
+        $_: $author-type;
+        @if $type != "author" {
+          $_: #{$type}-#{$author-type};
+        }
+        @each $key, $value in map-get($configs, $type) {
+          @if $value != null {
+            --mkc-#{$_}-#{$key}: #{$value};
+          }
+        }
+      }
+    }
+  }
+}

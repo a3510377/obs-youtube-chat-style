@@ -31,7 +31,11 @@ yt-live-chat-viewer-engagement-message-renderer {
       padding: var(--mkc-avatar-#{$author-var-name}-padding);
     }
     yt-live-chat-author-chip {
-      display: flex;
+      &,
+      #author-name {
+        display: flex;
+        align-items: center;
+      }
 
       #chip-badges,
       #chat-badges {
@@ -51,6 +55,9 @@ yt-live-chat-viewer-engagement-message-renderer {
       }
     }
   }
+}
+yt-live-chat-app {
+  min-height: initial !important;
 }
 yt-live-chat-renderer {
   border-radius: var(--mks-page-border-radius, 15px);
